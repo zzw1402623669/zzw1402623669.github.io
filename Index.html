@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="vue_bill">
+        <h1>{{title}}</h1>
+        <h1>{{details}}</h1>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:"#vue_bill",
+            data:{
+                title:"AgeraBill",
+                url:"www.zhenzhuowen.com"
+            },
+            computed:{
+                details:function () {
+                   return this.title+"-Vue-"+this.url;
+                }
+            }
+        })
+    </script>
+    <div id="vue_click" @click="handleClick">
+        <h1>{{msg}}</h1>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:"#vue_click",
+            data:{
+                msg:"hello world click"
+            },
+            methods:{
+                handleClick:function () {
+                    this.msg=this.msg+" click"
+                }
+            }
+
+        })
+    </script>
+
+    <div id="vue_input">
+        姓：<input v-model="firstname"/>
+        名：<input v-model="lastname"/>
+        <div>{{fullName}}</div>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:"#vue_input",
+            data:{
+                firstname:"",
+                lastname:""
+            },
+            computed:{
+                fullName:function () {
+                    return this.firstname+"  "+this.lastname
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
